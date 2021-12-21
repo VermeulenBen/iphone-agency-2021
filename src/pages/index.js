@@ -1,31 +1,67 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import * as React from "react";
+import Layout from "../components/layout";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { graphql } from "gatsby";
+import IPhone from "../components/iphone";
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+const IndexPage = ({ data: { wpPage: { homePage } } }) => {
+  const image = getImage(homePage.headerHome.bannerPicture.localFile);
 
-const IndexPage = () => (
-  <Layout>
-    <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["auto", "webp", "avif"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link> <br />
-      <Link to="/using-ssr">Go to "Using SSR"</Link> <br />
-      <Link to="/using-dsg">Go to "Using DSG"</Link>
-    </p>
-  </Layout>
-)
+  return (
+    <Layout>
 
-export default IndexPage
+      <h1>{homePage.headerHome.title}</h1>
+      <div>{homePage.headerHome.description}</div>
+      <div> <GatsbyImage image={image} alt={homePage.headerHome.bannerPicture.altText} /> </div>
+
+      <h1>Newest iPhones</h1>
+      <h1>{homePage.newestIphones.title}</h1>
+      <div>{homePage.newestIphones.description}</div>
+      <div>{homePage.newestIphones.iphones.map(iphone => <IPhone iphone={iphone} />)}</div>
+
+    </Layout>
+  );
+}
+
+export default IndexPage;
+
+export const data = graphql` 
+{
+  wpPage(slug: {eq: "home"}) {
+    homePage {
+      headerHome {
+        bannerPicture {
+          altText
+          localFile {
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED)
+            }
+          }
+        }
+        description
+        title
+      }
+      newestIphones {
+        title
+        iphones {
+          ... on WpIPhone {
+            id
+            title
+            slug
+            iphoneMeta {
+              headPicture {
+                altText
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(placeholder: BLURRED)
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;

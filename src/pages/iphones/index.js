@@ -1,23 +1,22 @@
 import * as React from "react";
-import Layout from "../../components/layout";
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Layout from "../../components/layout";
 import IPhone from "../../components/iphone";
+import { allPhones, paddingTop, titleCss, description, headImage } from '../../page.module.css';
+
 
 const Iphones = ({ data: { wpPage: { title, iphonesPage }, allWpIPhone: { edges } } }) => {
   const pageHeaderImage = getImage(iphonesPage.headerIphones.bannerPicture.localFile);
 
   return (
     <Layout>
+      <h1 className={titleCss} >{title}</h1>
+      <GatsbyImage className={headImage} image={pageHeaderImage} alt={`image of ${title}-pageheader`} />
 
-      <h1>{title}</h1>
-      <GatsbyImage image={pageHeaderImage} alt={`image of ${title}-pageheader`} />
-      <div>{iphonesPage.headerIphones.description}</div>
+      <div className={`${description} ${paddingTop}`} >{iphonesPage.headerIphones.description}</div>
 
-      <div>
-        {edges.map(({ node }) => <IPhone iphone={node} />)}
-      </div>
-
+      <div className={allPhones} > {edges.map(({ node }) => <IPhone key={node.id} iphone={node} />)} </div>
     </Layout>
   );
 }

@@ -1,15 +1,22 @@
 import React from "react";
 import { Link } from "gatsby";
-import { header, headerName, shimmer, activeLink } from "./header.module.css"
+import { header, logo, shimmer, menubtn, menuicon, navicon, menu, activeHeader } from "./header.module.css";
 
-const Header = ({ title }) => {
+const Header = () => {
   return (
-    <div className={header}>
-      <div className={`${headerName} ${shimmer}`}>{title}</div>
-      <ul>
-        <li><Link to="/" activeClassName={activeLink}>Home</Link></li>
-        <li><Link to="/iphones" activeClassName={activeLink}>iPhones</Link></li>
-      </ul>
+    <div >
+      <div className={header}>
+        <Link to="/" className={`${logo} ${shimmer}`}>iPhone Agency</Link>
+
+        <input className={menubtn} type="checkbox" id="menu-btn" />
+        <label className={menuicon} htmlFor="menu-btn"><span className={navicon}></span></label>
+
+        <ul className={menu}>
+          <li><Link activeClassName={activeHeader} to="/" >Home</Link></li>
+          <li><Link activeClassName={activeHeader} to="/iphones" >iPhones</Link></li>
+          <li><Link activeClassName={activeHeader} to="/shops" >Shops</Link></li>
+        </ul>
+      </div>
     </div>
   );
 }

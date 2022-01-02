@@ -1,24 +1,23 @@
 import * as React from "react";
-import Layout from "../components/layout";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Layout from "../components/layout";
 import IPhone from "../components/iphone";
+import { titleCss, description, imagesInRow, headImage } from '../page.module.css';
 
 const IndexPage = ({ data: { wpPage: { homePage } } }) => {
   const image = getImage(homePage.headerHome.bannerPicture.localFile);
 
   return (
     <Layout>
+      <h1 className={titleCss} >{homePage.headerHome.title}</h1>
+      <div className={description} >{homePage.headerHome.description}</div>
+      <GatsbyImage className={headImage} image={image} alt={homePage.headerHome.bannerPicture.altText} />
 
-      <h1>{homePage.headerHome.title}</h1>
-      <div>{homePage.headerHome.description}</div>
-      <div> <GatsbyImage image={image} alt={homePage.headerHome.bannerPicture.altText} /> </div>
-
-      <h1>Newest iPhones</h1>
-      <h1>{homePage.newestIphones.title}</h1>
-      <div>{homePage.newestIphones.description}</div>
-      <div>{homePage.newestIphones.iphones.map(iphone => <IPhone iphone={iphone} />)}</div>
-
+      <h1 className={titleCss}>Newest iPhones</h1>
+      <h2 className={titleCss}>{homePage.newestIphones.title}</h2>
+      <div className={description}>{homePage.newestIphones.description}</div>
+      <div className={imagesInRow} >{homePage.newestIphones.iphones.map(iphone => <IPhone key={iphone.id} iphone={iphone} />)}</div>
     </Layout>
   );
 }
@@ -42,6 +41,7 @@ export const data = graphql`
         title
       }
       newestIphones {
+        description
         title
         iphones {
           ... on WpIPhone {

@@ -1,0 +1,45 @@
+.divPicture {
+    height: 85%;
+    width: 100%;
+}
+
+.picture {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+}
+
+.container {
+    border: white solid 1px;
+    width: 30%;
+    padding: 1%;
+    margin-bottom: 1%;
+    height: 40vh;
+}
+
+.title {
+    height: 2em;
+    margin-bottom: 0.5em;
+}
+
+@media screen and (max-width: 1300px) {
+    .container {
+        height: 30vh;
+        min-height: 220px;
+    }
+
+    .picture {
+        height: 93%;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .title {
+        font-size: 12px;
+        height: 3em;
+    }
+
+    .picture {
+        height: 90%;
+    }
+}

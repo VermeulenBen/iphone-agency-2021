@@ -1,0 +1,240 @@
+/*home-page*/
+.imagesInRow {
+    display: flex;
+    justify-content: center;
+}
+
+.headImage {
+    height: 45vh;
+}
+
+
+
+
+/*home-page + iphones-page*/
+.description {
+    padding-bottom: 20px;
+}
+
+
+
+
+/*home-page + iphones-page + shops-page*/
+.titleCss {
+    text-align: center;
+}
+
+
+
+
+/*iphones-page*/
+.allPhones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.paddingTop {
+    padding-top: 4em;
+}
+
+
+
+
+/*detailpagina*/
+.threePicsAside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.allFourPics {
+    display: flex;
+    width: 50%;
+    padding-right: 1em;
+    justify-content: space-between;
+}
+
+.smallPic {
+    width: 10vw;
+    height: 30%;
+}
+
+.smallPic:hover, .bigPic:hover {
+    transform: scale(1.03);
+}
+
+.bigPic {
+    width: 30vw;
+    height: 100%;
+    margin-left: 1em;
+}
+
+.specs {
+    width: 50%;
+    padding-left: 1em;
+}
+
+.picsAndSpecs {
+    display: flex;
+    margin-bottom: 15%;
+    height: 50vh;
+    min-height: 445px;
+}
+
+.formPart {
+    display: flex;
+}
+
+.formPartLeft {
+    min-width: 185px;
+}
+
+@media screen and (max-width: 1024px) {
+    .picsAndSpecs {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 90%;
+        height: 50vh;
+    }
+
+    .allFourPics {
+        width: 100%;
+        padding-right: 0;
+        height: 80vh;
+    }
+
+    .threePicsAside {
+        width: 50%;
+        height: 80vh;
+    }
+
+    .smallPic {
+        width: 40vw;
+        height: 25vh;
+    }
+
+    .bigPic {
+        width: 50%;
+        margin-left: 0;
+    }
+
+    .specs {
+        width: 100%;
+        padding: 1em 0 0 0;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .picsAndSpecs {
+        margin-bottom: 70%;
+        height: 70vh;
+    }
+
+    .specs {
+        width: 97%;
+        padding-left: 1em;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .picsAndSpecs {
+        margin-bottom: 95%;
+        height: 70vh;
+    }
+
+    .specs {
+        width: 97%;
+        padding-left: 1em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .picsAndSpecs {
+        margin-bottom: 100%;
+        height: 50vh;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .picsAndSpecs {
+        margin-bottom: 80%;
+        height: 70vh;
+    }
+
+    .specs {
+        width: 97%;
+        padding-left: 1em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .picsAndSpecs {
+        margin-bottom: 110%;
+        height: 70vh;
+    }
+
+    .specs {
+        width: 97%;
+        padding-left: 1em;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .picsAndSpecs {
+        margin-bottom: 110%;
+        height: 50vh;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .picsAndSpecs {
+        margin-bottom: 160%;
+        height: 60vh;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .picsAndSpecs {
+        margin-bottom: 180%;
+        height: 50vh;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .picsAndSpecs {
+        margin-bottom: 180%;
+        height: 80vh;
+    }
+}
+
+
+
+
+/*shops-pagina*/
+.iframe {
+    height: 50vh;
+    width: 100%;
+}
+
+.label {
+    padding-right: 0.5em;
+    font-size: 2em;
+}
+
+.select {
+    border: black solid 2px;
+    padding: 0.3em;
+    font-size: 1em;
+}
+
+.options {
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shopsContainer {
+    min-height: 83vh;
+}

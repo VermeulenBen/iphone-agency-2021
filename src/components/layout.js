@@ -1,11 +1,10 @@
 import * as React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import Header from "./header";
 import Footer from "./footer";
-import { container, withoutFooter } from './layout.module.css';
-import { graphql, useStaticQuery } from "gatsby";
+import { container, main } from './layout.module.css';
 
 const Layout = ({ children }) => {
-
   const data = useStaticQuery(graphql`
   query {
     site {
@@ -25,14 +24,9 @@ const Layout = ({ children }) => {
 
   return (
     <div className={container} >
-
-      <div className={withoutFooter} >
-        <Header title={data.site.siteMetadata.title} />
-        <main>{children}</main>
-      </div>
-
+      <Header title={data.site.siteMetadata.title} />
+      <main className={main} >{children}</main>
       <Footer siteMetadata={data.site.siteMetadata} />
-
     </div>
   )
 }

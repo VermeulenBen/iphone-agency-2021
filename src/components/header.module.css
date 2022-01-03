@@ -141,7 +141,10 @@
 }
 
 
-
+.logoImg {
+    width: 3em;
+    height: 1em;
+}
 
 /* 60em = 960px */
 @media (min-width: 62em) {
@@ -167,12 +170,13 @@
 @media (max-width: 414px) {
     .logo {
         width: 70vw;
+        font-size: 1em;
     }
 }
 
 @media (max-width: 320px) {
     .logo {
-        font-size: 1em;
+        font-size: 0.70em;
         width: 60vw;
     }
 }
